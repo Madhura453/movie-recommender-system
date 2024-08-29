@@ -1,0 +1,185 @@
+{
+	"info": {
+		"_postman_id": "3773de60-b531-42cb-8bcd-9d09f1967376",
+		"name": "Movie recommendation application",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "15596340"
+	},
+	"item": [
+		{
+			"name": "movie",
+			"item": [
+				{
+					"name": "Add Movie",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"The Lord of the Rings: The Return of the King\",\r\n    \"description\": \"Gandalf and Aragorn lead the world of men against Sauron's army to draw his gaze from Frodo and Sam as they approach Mount Doom with the One Ring.\",\r\n    \"director\": \"Peter Jackson\",\r\n    \"image\": \"http://example.com/lotr-returnking-image.jpg\",\r\n    \"videoUrl\": \"http://example.com/lotr-returnking-video.mp4\",\r\n    \"actors\": [\r\n        {\r\n            \"name\": \"Elijah Wood\",\r\n            \"email\": \"elijah@lotr.com\",\r\n            \"role\": \"Hero\"\r\n        },\r\n        {\r\n            \"name\": \"Viggo Mortensen\",\r\n            \"email\": \"viggo@lotr.com\",\r\n            \"role\": \"Major Role\"\r\n        }\r\n    ],\r\n    \"genresList\": [\r\n        {\r\n            \"name\": \"Adventure\"\r\n        },\r\n        {\r\n            \"name\": \"Fantasy\"\r\n        }\r\n    ]\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8081/movie/add"
+					},
+					"response": []
+				},
+				{
+					"name": "list of moives",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Inception\",\r\n    \"description\": \"A skilled thief is offered a chance to have his past crimes forgiven if he can implant another person's idea into a target's subconscious.\",\r\n    \"director\": \"Christopher Nolan\",\r\n    \"image\": \"http://example.com/image.jpg\",\r\n    \"videoUrl\": \"http://example.com/video.mp4\",\r\n    \"actors\": [\r\n        {\r\n            \"actorId\": 1,\r\n            \"name\": \"Leonardo DiCaprio\",\r\n            \"email\": \"leo@example.com\",\r\n            \"role\": \"Dom Cobb\"\r\n        },\r\n        {\r\n            \"actorId\": 2,\r\n            \"name\": \"Joseph Gordon-Levitt\",\r\n            \"email\": \"joseph@example.com\",\r\n            \"role\": \"Arthur\"\r\n        }\r\n    ],\r\n    \"genresList\": [\r\n        {\r\n            \"genresId\": 1,\r\n            \"name\": \"Science Fiction\"\r\n        },\r\n        {\r\n            \"genresId\": 2,\r\n            \"name\": \"Thriller\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8081/movie/get/movieList"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "rating",
+			"item": [
+				{
+					"name": "give rating",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ratingId\": {\r\n        \"movieId\": 60,\r\n        \"userId\": 152\r\n    },\r\n    \"likeStatus\": \"LIKED\",\r\n    \"totalRating\": 5,\r\n    \"userRating\": 4.5,\r\n    \"visited\": true\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/rating/give"
+					},
+					"response": []
+				},
+				{
+					"name": "get list of ratings based on ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/rating/get/movie/1/userId/152"
+					},
+					"response": []
+				},
+				{
+					"name": "get list of ratings based on ID Copy",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/rating/movie/1"
+					},
+					"response": []
+				},
+				{
+					"name": "delete rating",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:8080/rating/delete/movie/1/userId/152"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "recommendation",
+			"item": [
+				{
+					"name": "get Recommedations",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/recommendation/movies?movieId=62&&userId=152&pageNumber=1&pageSize=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"recommendation",
+								"movies"
+							],
+							"query": [
+								{
+									"key": "movieId",
+									"value": "62"
+								},
+								{
+									"key": null,
+									"value": null
+								},
+								{
+									"key": "userId",
+									"value": "152"
+								},
+								{
+									"key": "pageNumber",
+									"value": "1"
+								},
+								{
+									"key": "pageSize",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get recommendations based on liked",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/recommendation/liked?movieId=60&&userId=152",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"recommendation",
+								"liked"
+							],
+							"query": [
+								{
+									"key": "movieId",
+									"value": "60"
+								},
+								{
+									"key": null,
+									"value": null
+								},
+								{
+									"key": "userId",
+									"value": "152"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
