@@ -9,3 +9,4 @@
 # ER Diagram
 
 ![ER diagram  movie recommendation system](https://github.com/user-attachments/assets/efe7232e-53fe-4747-adbf-6648ff138c25)
+
