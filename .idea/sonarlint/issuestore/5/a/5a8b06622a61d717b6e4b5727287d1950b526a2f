@@ -1,0 +1,9 @@
+
+…
+java:S6813"BRemove this field injection and use constructor injection instead.(êæÄÞ8ÍØ¿¼™2J$f849e7ec-420b-446a-8140-77ea5a51a52c
+n
+java:S1452"&Remove usage of generic wildcard type.(Ù­Šƒûÿÿÿÿ8ÐØ¿¼™2J$e479baf3-8020-46b8-8525-cf8c21a886c0
+‹
+java:S1128"CRemove this unused import 'com.rating.repository.RatingRepository'.(³×°½ùÿÿÿÿ8ÿà¦Ð™2J$b67b9e1b-1cad-4756-960e-741240f4f249
+™
+java:S1128"QRemove this unused import 'org.springframework.web.bind.annotation.RequestParam'.(Â¬À·ùÿÿÿÿ8€á¦Ð™2J$832f2b51-e2d6-4f61-936e-b7f754855af3
